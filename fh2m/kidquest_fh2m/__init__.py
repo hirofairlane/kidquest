@@ -15,6 +15,7 @@ from .container import (
     Fh2mContainer,
     Fh2mError,
 )
+from .header import read_map_name, set_map_name
 from .stream import StreamReader, StreamWriter
 
 __all__ = [
@@ -27,4 +28,6 @@ __all__ = [
     "StreamReader",
     "StreamWriter",
     "assert_fully_parsable",
+    "read_map_name",
+    "set_map_name",
 ]

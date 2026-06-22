@@ -474,6 +474,7 @@ version = "0.0.0"
 source = { editable = "content" }
 dependencies = [
     { name = "jsonschema" },
+    { name = "kidquest-fh2m" },
     { name = "pydantic" },
     { name = "pyyaml" },
     { name = "requests" },
@@ -482,6 +483,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "jsonschema", specifier = ">=4.23" },
+    { name = "kidquest-fh2m", editable = "fh2m" },
     { name = "pydantic", specifier = ">=2.9" },
     { name = "pyyaml", specifier = ">=6.0" },
     { name = "requests", specifier = ">=2.32" },

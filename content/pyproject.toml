@@ -8,6 +8,7 @@ dependencies = [
     "requests>=2.32",
     "pyyaml>=6.0",
     "jsonschema>=4.23",
+    "kidquest-fh2m",
 ]
 
 [build-system]
