@@ -30,9 +30,9 @@ without the GPU box awake; only the generation/sprite **smoke** tests need it.
 - [x] `FeedbackLoop`, `AntiFrustration`, `DynamicDifficulty` in TS
 - [x] `server/director/rules.py` + shared golden-vector parity fixture
 
-## M5 — Backend profile store + API + static content
-- [ ] `profile/store.py` (streak, difficulty, reinforce[])
-- [ ] `api/routes.py` (`GET /content/today/{profile}`, static audio, fallback)
+## M5 — Backend profile store + API + static content  ✅
+- [x] `profile/store.py` (streak, difficulty, reinforce[])
+- [x] `api/routes.py` (`GET /content/today/{profile}`, static audio, stale fallback)
 
 ## M6 — Content generation pipeline (CLI on GPU box)
 - [ ] `prompt_builder` (pure, tested from fixtures)
