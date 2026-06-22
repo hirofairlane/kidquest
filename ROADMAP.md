@@ -21,10 +21,10 @@ without the GPU box awake; only the generation/sprite **smoke** tests need it.
 - [x] `Grid`, `Movement` (walkability, collision → intent)
 - [x] `FogOfWar`, `Fov` (LOS visibility)
 
-## M3 — Puzzles / dialogue / inventory + LevelLoader (pure TS)
-- [ ] `PuzzleStateMachine`, `AnswerChecker` (accent/case/number-tolerant)
-- [ ] `Inventory` (items, Magic Artifact effects)
-- [ ] `LevelLoader` (validated `daily_level` → engine state)
+## M3 — Puzzles / dialogue / inventory + LevelLoader (pure TS)  ✅
+- [x] `PuzzleStateMachine`, `AnswerChecker` (accent/case/number-tolerant)
+- [x] `Inventory` (items, Magic Artifact effects)
+- [x] `LevelLoader` (validated `daily_level` → engine state)
 
 ## M4 — Game Director rules (shared, pure)
 - [ ] `FeedbackLoop`, `AntiFrustration`, `DynamicDifficulty` in TS
