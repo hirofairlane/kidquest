@@ -1,0 +1,55 @@
+{
+  "_comment": "Language-neutral golden vectors for the Game Director rules. Consumed by BOTH the TypeScript (client) and Python (server) test suites to guarantee the two implementations stay in parity. Keys are snake_case.",
+  "feedback_loop": [
+    {
+      "name": "new concept is added with one failure",
+      "input": { "reinforce": [], "failed": [{ "concept_id": "ohms_law", "subject": "electronics" }] },
+      "expected": [{ "concept_id": "ohms_law", "subject": "electronics", "failures": 1 }]
+    },
+    {
+      "name": "existing concept increments its failure count",
+      "input": {
+        "reinforce": [{ "concept_id": "ohms_law", "subject": "electronics", "failures": 1 }],
+        "failed": [{ "concept_id": "ohms_law", "subject": "electronics" }]
+      },
+      "expected": [{ "concept_id": "ohms_law", "subject": "electronics", "failures": 2 }]
+    },
+    {
+      "name": "duplicate failures in one round accumulate",
+      "input": {
+        "reinforce": [],
+        "failed": [
+          { "concept_id": "fractions_halves", "subject": "math" },
+          { "concept_id": "fractions_halves", "subject": "math" }
+        ]
+      },
+      "expected": [{ "concept_id": "fractions_halves", "subject": "math", "failures": 2 }]
+    },
+    {
+      "name": "existing first (updated), then new appended",
+      "input": {
+        "reinforce": [{ "concept_id": "a", "subject": "math", "failures": 1 }],
+        "failed": [
+          { "concept_id": "b", "subject": "history" },
+          { "concept_id": "a", "subject": "math" }
+        ]
+      },
+      "expected": [
+        { "concept_id": "a", "subject": "math", "failures": 2 },
+        { "concept_id": "b", "subject": "history", "failures": 1 }
+      ]
+    }
+  ],
+  "anti_frustration": [
+    { "name": "two consecutive defeats triggers", "input": { "defeat_streak": 2, "elapsed_seconds": 10, "time_limit_seconds": 300 }, "expected": { "spawn_artifact": true } },
+    { "name": "one defeat does not trigger", "input": { "defeat_streak": 1, "elapsed_seconds": 10, "time_limit_seconds": 300 }, "expected": { "spawn_artifact": false } },
+    { "name": "time over the limit triggers", "input": { "defeat_streak": 0, "elapsed_seconds": 400, "time_limit_seconds": 300 }, "expected": { "spawn_artifact": true } },
+    { "name": "exactly at the limit does not trigger", "input": { "defeat_streak": 0, "elapsed_seconds": 300, "time_limit_seconds": 300 }, "expected": { "spawn_artifact": false } }
+  ],
+  "dynamic_difficulty": [
+    { "name": "strong clear bumps difficulty 10%", "input": { "difficulty_modifier": 1.0, "result": "cleared", "hp_pct": 0.9 }, "expected": { "difficulty_modifier": 1.1 } },
+    { "name": "exactly 80% does not bump", "input": { "difficulty_modifier": 1.0, "result": "cleared", "hp_pct": 0.8 }, "expected": { "difficulty_modifier": 1.0 } },
+    { "name": "just over 80% bumps and rounds", "input": { "difficulty_modifier": 1.1, "result": "cleared", "hp_pct": 0.81 }, "expected": { "difficulty_modifier": 1.21 } },
+    { "name": "a defeat never changes difficulty", "input": { "difficulty_modifier": 1.2, "result": "defeated", "hp_pct": 0.5 }, "expected": { "difficulty_modifier": 1.2 } }
+  ]
+}

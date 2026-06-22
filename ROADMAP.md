@@ -26,9 +26,9 @@ without the GPU box awake; only the generation/sprite **smoke** tests need it.
 - [x] `Inventory` (items, Magic Artifact effects)
 - [x] `LevelLoader` (validated `daily_level` → engine state)
 
-## M4 — Game Director rules (shared, pure)
-- [ ] `FeedbackLoop`, `AntiFrustration`, `DynamicDifficulty` in TS
-- [ ] `server/director/rules.py` + shared golden-vector parity fixture
+## M4 — Game Director rules (shared, pure)  ✅
+- [x] `FeedbackLoop`, `AntiFrustration`, `DynamicDifficulty` in TS
+- [x] `server/director/rules.py` + shared golden-vector parity fixture
 
 ## M5 — Backend profile store + API + static content
 - [ ] `profile/store.py` (streak, difficulty, reinforce[])
