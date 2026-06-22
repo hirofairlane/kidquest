@@ -8,7 +8,7 @@ from enum import Enum
 from pydantic import BaseModel, ConfigDict, Field, confloat, conint, constr
 
 
-class Subject1(Enum):
+class Subject(Enum):
     math = "math"
     spanish = "spanish"
     science_en = "science_en"
@@ -36,11 +36,11 @@ class Concept(BaseModel):
     difficulty: conint(ge=1, le=5)
 
 
-class Subject(BaseModel):
+class Subject1(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    subject: Subject1
+    subject: Subject
     language: Language = Field(
         ..., description="Language puzzles for this subject must be presented in."
     )
@@ -60,4 +60,4 @@ class Curriculum(BaseModel):
     )
     curriculum_ref: constr(pattern=r"^[a-z][a-z0-9_]*$")
     title: str | None = None
-    subjects: list[Subject] = Field(..., min_length=1)
+    subjects: list[Subject1] = Field(..., min_length=1)
