@@ -19,6 +19,7 @@ ALLOWED_LORA_STEMS: frozenset[str] = frozenset(
         "pxx4_v1_alpha",
         "z-image-pixel-hard_000002400",
         "ElinSpriteNoobLocon_byKonan",
+        "pixel-art-xl",
     }
 )
 

@@ -12,6 +12,7 @@ from kidquest_content.safety import (
 def test_allowlisted_pixel_art_lora_passes() -> None:
     assert is_allowed_lora("pixel_art_a3.safetensors")
     assert is_allowed_lora("/home/sergio/AI/ComfyUI/models/loras/pxx4_v1_alpha.safetensors")
+    assert is_allowed_lora("pixel-art-xl.safetensors")
     assert_lora_allowed("pixelart-1.pt")  # must not raise
 
 
