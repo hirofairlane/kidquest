@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kidquest.local/schemas/player_profile.schema.json",
+  "title": "PlayerProfile",
+  "description": "Per-player learning and progress profile. Real instances are private (gitignored); only generic examples are committed.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile_id", "age", "curriculum_ref", "difficulty_modifier", "defeat_streak"],
+  "properties": {
+    "profile_id": {
+      "type": "string",
+      "description": "Stable key, e.g. 'youth_10yo'. Binds to a curriculum.",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Human name. Present only in private live profiles, never in committed examples."
+    },
+    "age": { "type": "integer", "minimum": 3, "maximum": 120 },
+    "curriculum_ref": {
+      "type": "string",
+      "description": "Curriculum file id under curricula/profiles, e.g. 'youth_10yo'.",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "difficulty_modifier": {
+      "type": "number",
+      "description": "Global difficulty multiplier. 1.0 = baseline; ×1.10 on strong clears.",
+      "minimum": 0.1
+    },
+    "defeat_streak": {
+      "type": "integer",
+      "description": "Consecutive defeats; >= 2 triggers anti-frustration.",
+      "minimum": 0
+    },
+    "last_level_started_at": {
+      "type": ["string", "null"],
+      "description": "ISO-8601 timestamp when the current level started, for the time-over-limit trigger.",
+      "format": "date-time"
+    },
+    "reinforce_concepts": {
+      "type": "array",
+      "description": "Concepts the player failed and should be re-taught next.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["concept_id", "subject", "failures"],
+        "properties": {
+          "concept_id": { "type": "string" },
+          "subject": { "$ref": "#/$defs/subject" },
+          "failures": { "type": "integer", "minimum": 1 },
+          "added_at": { "type": ["string", "null"], "format": "date-time" }
+        }
+      }
+    },
+    "mastered_concepts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["date", "result", "hp_pct"],
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "result": { "type": "string", "enum": ["cleared", "defeated"] },
+          "hp_pct": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "subject": {
+      "type": "string",
+      "enum": ["math", "spanish", "science_en", "history", "geography", "english", "electronics"]
+    }
+  }
+}

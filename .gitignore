@@ -1,7 +1,10 @@
 # --- Privacy: never commit real player data or generated content ---
+# Live profiles live under server/data/ (ignored). The privacy guard in
+# tests/validate_repo.py is the real enforcement: it fails CI if any real
+# player_profile*.json (other than *.schema.json) or any non-generic profile
+# fixture is committed. Do NOT add a broad player_profile*.json ignore here —
+# it would also hide shared/schemas/player_profile.schema.json.
 content-store/
-**/player_profile*.json
-!shared/fixtures/profiles/generic_*.json
 server/data/
 *.local.json
 
