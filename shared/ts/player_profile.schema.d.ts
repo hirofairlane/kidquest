@@ -1,6 +1,6 @@
 // AUTO-GENERATED from shared/schemas. Do not edit by hand. Run: pnpm codegen:ts
 
-export type Subject = "math" | "spanish" | "science_en" | "history" | "geography" | "english" | "electronics";
+export type Subject = "math" | "spanish" | "science" | "history" | "geography" | "english" | "electronics";
 
 /**
  * Per-player learning and progress profile. Real instances are private (gitignored); only generic examples are committed.

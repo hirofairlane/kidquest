@@ -61,7 +61,7 @@
     "language": { "type": "string", "enum": ["es", "en"] },
     "subject": {
       "type": "string",
-      "enum": ["math", "spanish", "science_en", "history", "geography", "english", "electronics"]
+      "enum": ["math", "spanish", "science", "history", "geography", "english", "electronics"]
     },
     "localizedText": {
       "type": "object",

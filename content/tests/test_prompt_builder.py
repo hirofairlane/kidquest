@@ -23,10 +23,12 @@ def test_reinforced_concepts_appear_before_the_curriculum() -> None:
     assert "fractions_halves" in prompt
 
 
-def test_subject_language_is_stated_for_english_science_child() -> None:
+def test_content_language_policy_child() -> None:
+    # Policy: content is Spanish except the English-learning subject.
     profile = {"profile_id": "child_6yo", "age": 6, "difficulty_modifier": 1.0, "reinforce_concepts": []}
     prompt = build_prompt(profile, load_curriculum("child_6yo"))
-    assert "science_en [present in en]" in prompt
+    assert "science [present in es]" in prompt  # science is in Spanish now
+    assert "english [present in en]" in prompt  # only English-learning is in English
 
 
 def test_adult_profile_is_pure_data_electronics() -> None:

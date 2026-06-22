@@ -11,7 +11,7 @@ export interface Curriculum {
    */
   subjects: [
     {
-      subject: "math" | "spanish" | "science_en" | "history" | "geography" | "english" | "electronics";
+      subject: "math" | "spanish" | "science" | "history" | "geography" | "english" | "electronics";
       /**
        * Language puzzles for this subject must be presented in.
        */
@@ -37,7 +37,7 @@ export interface Curriculum {
       ];
     },
     ...{
-      subject: "math" | "spanish" | "science_en" | "history" | "geography" | "english" | "electronics";
+      subject: "math" | "spanish" | "science" | "history" | "geography" | "english" | "electronics";
       /**
        * Language puzzles for this subject must be presented in.
        */

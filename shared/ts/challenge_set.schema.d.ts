@@ -1,7 +1,7 @@
 // AUTO-GENERATED from shared/schemas. Do not edit by hand. Run: pnpm codegen:ts
 
 export type Language = "es" | "en";
-export type Subject = "math" | "spanish" | "science_en" | "history" | "geography" | "english" | "electronics";
+export type Subject = "math" | "spanish" | "science" | "history" | "geography" | "english" | "electronics";
 
 /**
  * The educational layer the AI authors for one day's map and learner: curriculum-tagged Sphinx riddles, signs and events to be patched into a fheroes2 .fh2m template. The strict contract for the local LLM (Ollama structured output) and validated server-side.

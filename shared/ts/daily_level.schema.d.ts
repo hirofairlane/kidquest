@@ -1,7 +1,7 @@
 // AUTO-GENERATED from shared/schemas. Do not edit by hand. Run: pnpm codegen:ts
 
 export type Language = "es" | "en";
-export type Subject = "math" | "spanish" | "science_en" | "history" | "geography" | "english" | "electronics";
+export type Subject = "math" | "spanish" | "science" | "history" | "geography" | "english" | "electronics";
 
 /**
  * The strict contract the local LLM must return for one day's level. Cross-field invariants (matrix dims, ref resolution, axial-in-radius, >=1 player unit) are enforced by schema_validator.py and the client LevelLoader.

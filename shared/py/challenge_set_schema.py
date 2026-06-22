@@ -34,7 +34,7 @@ class Language(Enum):
 class Subject(Enum):
     math = "math"
     spanish = "spanish"
-    science_en = "science_en"
+    science = "science"
     history = "history"
     geography = "geography"
     english = "english"
