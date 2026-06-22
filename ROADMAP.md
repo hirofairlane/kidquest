@@ -12,10 +12,10 @@ without the GPU box awake; only the generation/sprite **smoke** tests need it.
 - [x] Red→green placeholder tests on both sides; CI green
 - [x] Public repo `hirofairlane/kidquest` created and pushed — **CI green**
 
-## M1 — Hex combat engine (pure TS)
-- [ ] `AxialCoord`, `HexGrid` (distance, neighbors, range, line)
-- [ ] `TurnQueue` (initiative ordering, ties, cycling)
-- [ ] `DamageResolver`, `CombatEncounter` (deterministic resolution)
+## M1 — Hex combat engine (pure TS)  ✅
+- [x] `Axial`, `HexGrid` (distance, neighbors, range, line)
+- [x] `TurnQueue` (initiative ordering, ties, cycling)
+- [x] `DamageResolver`, `CombatEncounter` (deterministic resolution)
 
 ## M2 — Overworld engine (pure TS)
 - [ ] `Grid`, `Movement` (walkability, collision → intent)
