@@ -1,0 +1,23 @@
+# Curated content index for Arturo (youth_10yo).
+# Spanish for facts; English only for the English (reading comprehension) subject.
+profile_id: youth_10yo
+subjects:
+  - subject: geography
+    language: es
+    items:
+      - { concept: main_rivers, question: "¿Cuál es el río más largo de España?", answers: ["Tajo", "el Tajo", "tajo", "TAJO"], gold: 800 }
+      - { concept: iberian_relief, question: "¿Cuál es el pico más alto de la Península Ibérica?", answers: ["Mulhacén", "Mulhacen", "el Mulhacén", "mulhacén"], gold: 800 }
+  - subject: history
+    language: es
+    items:
+      - { concept: reconquista, question: "¿En qué año conquistaron Granada los Reyes Católicos?", answers: ["1492"], gold: 800 }
+      - { concept: greek_colonies, question: "¿Qué pueblo de la antigüedad fundó la colonia de Emporion (Ampurias)?", answers: ["griegos", "los griegos", "Griegos", "los Griegos"], gold: 800 }
+  - subject: math
+    language: es
+    items:
+      - { concept: fractions_halves, question: "¿Cuánto es la mitad de 8?", answers: ["4", "cuatro", "Cuatro"], gold: 700 }
+      - { concept: roman_numerals_basic, question: "¿Qué número es el romano 'IX'?", answers: ["9", "nueve", "Nueve"], gold: 700 }
+  - subject: english
+    language: en
+    items:
+      - { concept: reading_comprehension, question: "Read: 'The knight has a red shield.' What colour is the shield?", answers: ["red", "Red", "RED"], gold: 700 }

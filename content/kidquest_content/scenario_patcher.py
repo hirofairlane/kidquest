@@ -20,11 +20,18 @@ def reward_to_funds(reward: dict) -> list[int]:
     return [int(reward.get(k, 0)) for k in _FUNDS_ORDER]
 
 
-def patch_scenario(template_bytes: bytes, challenge_set: dict, *, name: str | None = None) -> tuple[bytes, dict]:
+def patch_scenario(
+    template_bytes: bytes,
+    challenge_set: dict,
+    *,
+    name: str | None = None,
+    artifacts: list[int] | None = None,
+) -> tuple[bytes, dict]:
     """Patch a template with a ChallengeSet's Sphinx riddles. Returns (bytes, stats).
 
     Challenges are assigned to Sphinx slots in order; extra challenges or extra
-    slots are reported in the stats so the caller can warn.
+    slots are reported in the stats so the caller can warn. ``artifacts`` (optional)
+    is a per-slot tracker-medal artifact id granted on a correct answer.
     """
     container = Fh2mContainer.parse(template_bytes)
     body = MapBody.parse(container.body)
@@ -34,10 +41,10 @@ def patch_scenario(template_bytes: bytes, challenge_set: dict, *, name: str | No
         raise PatchError("template has no Sphinx slots to patch")
 
     count = min(len(body.sphinx), len(challenges))
-    for slot, ch in zip(body.sphinx[:count], challenges[:count]):
+    for i, (slot, ch) in enumerate(zip(body.sphinx[:count], challenges[:count])):
         slot.riddle = ch["riddle"]["text"]
         slot.answers = list(ch["answers"])
-        slot.artifact = 0
+        slot.artifact = artifacts[i] if artifacts and i < len(artifacts) else 0
         slot.artifact_metadata = 0
         slot.resources = reward_to_funds(ch.get("reward", {}))
 

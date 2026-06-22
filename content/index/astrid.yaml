@@ -1,0 +1,20 @@
+# Curated content index for Astrid (child_6yo). All Spanish.
+# Author-verified Q&A — correct by construction (no LLM facts). Edit freely.
+# answers: list every accepted form (fheroes2 matches EXACTLY, case-sensitive).
+profile_id: child_6yo
+subjects:
+  - subject: math
+    language: es
+    items:
+      - { concept: addition_basic, question: "¿Cuánto es 3 + 2?", answers: ["5", "cinco", "Cinco"], gold: 500 }
+      - { concept: subtraction_basic, question: "¿Cuánto es 7 - 4?", answers: ["3", "tres", "Tres"], gold: 500 }
+  - subject: science
+    language: es
+    items:
+      - { concept: animals_groups, question: "¿Cuántas patas tiene un perro?", answers: ["4", "cuatro", "Cuatro"], gold: 500 }
+      - { concept: living_nonliving, question: "¿El sol es un ser vivo o un objeto inerte? (vivo/inerte)", answers: ["inerte", "Inerte", "objeto inerte"], gold: 500 }
+      - { concept: body_parts, question: "¿Con qué parte de la cara ves?", answers: ["ojos", "los ojos", "Ojos", "ojo"], gold: 500 }
+  - subject: spanish
+    language: es
+    items:
+      - { concept: word_recognition, question: "¿Qué animal dice 'guau'?", answers: ["perro", "el perro", "Perro"], gold: 500 }

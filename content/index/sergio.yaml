@@ -1,0 +1,15 @@
+# Curated content index for Sergio (adult_artificer).
+# Electronics in Spanish; English only for the English (grammar/reading) subject.
+profile_id: adult_artificer
+subjects:
+  - subject: electronics
+    language: es
+    items:
+      - { concept: ohms_law, question: "Ley de Ohm: si V = 10 V e I = 2 A, ¿cuánto vale R en ohmios?", answers: ["5", "5 ohmios", "5 ohm", "5Ω", "cinco"], gold: 1000 }
+      - { concept: components_rlc, question: "¿Qué componente almacena energía en un campo eléctrico (almacena carga)?", answers: ["condensador", "el condensador", "capacitor", "Condensador"], gold: 1000 }
+      - { concept: logic_gates, question: "¿Qué puerta lógica da salida 1 solo si TODAS sus entradas son 1?", answers: ["AND", "and", "puerta AND", "Y"], gold: 1000 }
+      - { concept: breadboard_basics, question: "En una protoboard, ¿cómo se llaman las dos filas largas para alimentación (+ y -)?", answers: ["raíles", "raíles de alimentación", "buses", "buses de alimentación", "rails"], gold: 1000 }
+  - subject: english
+    language: en
+    items:
+      - { concept: grammar_advanced, question: "Choose the correct verb: 'She ___ to the lab every day.' (go / goes)", answers: ["goes", "Goes"], gold: 900 }
