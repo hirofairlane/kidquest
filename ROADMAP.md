@@ -44,8 +44,9 @@ without the GPU box awake; only the generation/sprite **smoke** tests need it.
 ## M7 — Optional sprite/tile generation (ComfyUI)  ✅
 - [x] `comfy_driver` (POST /prompt → poll /history → /view) + AssetSpec, allowlist-enforced
 
-## M8 — Phaser wiring (view only)
-- [ ] Boot/Overworld/Combat/Dialogue/Puzzle scenes bound to the green engine
+## M8 — Phaser wiring (view only)  ✅
+- [x] Boot/Overworld/Combat/Dialogue/Puzzle scenes bound to the green engine
+- [x] API client (content/today) + tile-colour view helper (unit-tested)
 
 ## M9 — Deploy to CT 110 on zeratul
 - [ ] docker-compose (FastAPI + static, CPU-only), NAS content-store mount, provisioning notes

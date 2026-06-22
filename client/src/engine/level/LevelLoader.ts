@@ -64,8 +64,13 @@ export interface RawDailyLevel {
   puzzles: Array<{
     id: string;
     concept_tags: string[];
+    subject?: string;
+    kind?: string;
+    prompt?: { text: string; language: "es" | "en" };
+    options?: string[] | null;
     answer: string;
     accepted_answers?: string[] | null;
+    hint?: { text: string; language: "es" | "en" } | null;
   }>;
   dialogues: Array<Dialogue>;
   encounters: Array<{
