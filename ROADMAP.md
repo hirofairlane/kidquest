@@ -41,8 +41,8 @@ without the GPU box awake; only the generation/sprite **smoke** tests need it.
 - [x] `safety` (LoRA allowlist + banned NSFW LoRA + text filter), `publisher`, `orchestrator`
 - [x] `@pytest.mark.smoke` real-Ollama generation test (passed live on blackwell)
 
-## M7 — Optional sprite/tile generation (ComfyUI)
-- [ ] `comfy_driver` (POST /prompt → poll /history → /view) + AssetSpec, allowlist-enforced
+## M7 — Optional sprite/tile generation (ComfyUI)  ✅
+- [x] `comfy_driver` (POST /prompt → poll /history → /view) + AssetSpec, allowlist-enforced
 
 ## M8 — Phaser wiring (view only)
 - [ ] Boot/Overworld/Combat/Dialogue/Puzzle scenes bound to the green engine
