@@ -34,11 +34,12 @@ without the GPU box awake; only the generation/sprite **smoke** tests need it.
 - [x] `profile/store.py` (streak, difficulty, reinforce[])
 - [x] `api/routes.py` (`GET /content/today/{profile}`, static audio, stale fallback)
 
-## M6 — Content generation pipeline (CLI on GPU box)
-- [ ] `prompt_builder` (pure, tested from fixtures)
-- [ ] `llm_client` (mocked in units), `schema_validator`, `tts_piper` (mocked)
-- [ ] `safety` (LoRA allowlist; banned NSFW LoRA), `publisher`, `orchestrator` CLI
-- [ ] `@pytest.mark.smoke` real-Ollama generation test (excluded from cloud CI)
+## M6 — Content generation pipeline (CLI on GPU box)  ✅
+- [x] `prompt_builder` (pure, tested from fixtures)
+- [x] `llm_client` (mocked in units; schema dereferenced for Ollama format)
+- [x] `schema_validator`, `tts_piper` (mocked)
+- [x] `safety` (LoRA allowlist + banned NSFW LoRA + text filter), `publisher`, `orchestrator`
+- [x] `@pytest.mark.smoke` real-Ollama generation test (passed live on blackwell)
 
 ## M7 — Optional sprite/tile generation (ComfyUI)
 - [ ] `comfy_driver` (POST /prompt → poll /history → /view) + AssetSpec, allowlist-enforced

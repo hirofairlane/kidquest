@@ -43,3 +43,36 @@ def assert_lora_allowed(lora: str) -> None:
         raise BannedAssetError(
             f"LoRA {lora!r} is not on the family-safe allowlist and must not be used"
         )
+
+
+# Defence-in-depth on generated TEXT (the local LLM is generally safe, but this is
+# child-facing). A small banned-term list; extend as needed. Matched case-insensitively.
+BANNED_TEXT_TERMS: frozenset[str] = frozenset(
+    {"nsfw", "sex", "sexual", "porn", "gore", "suicide"}
+)
+
+
+class UnsafeTextError(ValueError):
+    """Raised when generated text contains a banned term."""
+
+
+def find_unsafe_terms(text: str) -> list[str]:
+    lowered = text.lower()
+    return sorted(term for term in BANNED_TEXT_TERMS if term in lowered)
+
+
+def assert_level_text_safe(level: dict) -> None:
+    """Scan all child-facing strings in a level; raise on any banned term."""
+    fragments: list[str] = []
+    for puzzle in level.get("puzzles", []):
+        fragments.append(puzzle.get("prompt", {}).get("text", ""))
+        hint = puzzle.get("hint")
+        if hint:
+            fragments.append(hint.get("text", ""))
+    for dialogue in level.get("dialogues", []):
+        for line in dialogue.get("lines", []):
+            fragments.append(line.get("text", ""))
+
+    hits = sorted({term for fragment in fragments for term in find_unsafe_terms(fragment)})
+    if hits:
+        raise UnsafeTextError(f"generated level contains banned terms: {', '.join(hits)}")
