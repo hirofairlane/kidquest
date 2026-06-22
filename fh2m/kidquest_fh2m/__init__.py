@@ -8,6 +8,7 @@ a 6-byte magic + uncompressed big-endian header, then a plain zlib stream
 Pinned to format version 13.
 """
 
+from .body import MapBody, Sphinx, assert_fully_parsable
 from .container import (
     FORMAT_VERSION,
     MAGIC,
@@ -21,6 +22,9 @@ __all__ = [
     "MAGIC",
     "Fh2mContainer",
     "Fh2mError",
+    "MapBody",
+    "Sphinx",
     "StreamReader",
     "StreamWriter",
+    "assert_fully_parsable",
 ]

@@ -40,8 +40,14 @@ class StreamReader:
     def bool(self) -> bool:
         return self.u8() != 0
 
+    def i8(self) -> int:
+        return struct.unpack(">b", self.read_raw(1))[0]
+
     def u16(self) -> int:
         return struct.unpack(">H", self.read_raw(2))[0]
+
+    def i16(self) -> int:
+        return struct.unpack(">h", self.read_raw(2))[0]
 
     def u32(self) -> int:
         return struct.unpack(">I", self.read_raw(4))[0]
@@ -70,8 +76,14 @@ class StreamWriter:
     def bool(self, v: bool) -> None:
         self.u8(1 if v else 0)
 
+    def i8(self, v: int) -> None:
+        self._chunks.append(struct.pack(">b", v))
+
     def u16(self, v: int) -> None:
         self._chunks.append(struct.pack(">H", v & 0xFFFF))
+
+    def i16(self, v: int) -> None:
+        self._chunks.append(struct.pack(">h", v))
 
     def u32(self, v: int) -> None:
         self._chunks.append(struct.pack(">I", v & 0xFFFFFFFF))
