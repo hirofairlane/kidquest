@@ -1,0 +1,43 @@
+# ============================================================================
+#  PLANTILLA de índice de contenidos KidQuest  (copia esto a <persona>.yaml)
+# ============================================================================
+# Tú pones preguntas y respuestas CORRECTAS; el sistema las mete tal cual en el
+# juego (sin IA inventando). Cuantos más items pongas, más variedad y mejor.
+#
+# REGLA DE ORO sobre `answers`:
+#   fheroes2 compara la respuesta del jugador EXACTAMENTE (sensible a mayúsculas
+#   y acentos). Por eso, lista TODAS las formas que quieras dar por buenas:
+#   minúscula, Capitalizada, MAYÚSCULA, con y sin acento, sinónimos, número y
+#   palabra. Ej.: ["Tajo", "el Tajo", "tajo", "TAJO"]  o  ["5", "cinco", "Cinco"].
+#
+# IDIOMA (política): todo en castellano POR DEFECTO. El inglés SOLO en el subject
+#   `english` (gramática sencilla + comprensión). Astrid (child_6yo): todo en es.
+#
+# subject permitidos: math · spanish · science · history · geography · english · electronics
+# profile_id: child_6yo (Astrid) · youth_10yo (Arturo) · adult_artificer (Sergio)
+# ----------------------------------------------------------------------------
+
+profile_id: youth_10yo            # quién es
+
+subjects:
+  - subject: geography            # una de la lista de subjects
+    language: es                  # es | en  (en SOLO para subject english)
+    items:
+      # concept  = etiqueta corta del concepto (para reforzar/medir progreso)
+      # question = el enunciado, en el idioma de arriba
+      # answers  = TODAS las formas aceptadas (exactas)
+      # gold     = recompensa opcional (por defecto 500)
+      - { concept: main_rivers,  question: "¿Cuál es el río más largo de España?", answers: ["Tajo", "el Tajo", "tajo", "TAJO"], gold: 800 }
+      - { concept: capitals,     question: "¿Cuál es la capital de Andalucía?", answers: ["Sevilla", "sevilla", "SEVILLA"] }
+
+  - subject: english              # el ÚNICO que va en inglés
+    language: en
+    items:
+      - { concept: reading, question: "Read: 'The knight has a red shield.' What colour is the shield?", answers: ["red", "Red", "RED"] }
+
+# Consejos:
+#  - Respuestas cortas y sin ambigüedad (evita preguntas abiertas).
+#  - Para números: incluye dígito y palabra ("4", "cuatro").
+#  - Opción múltiple: pon las opciones dentro de la pregunta y la correcta en answers.
+#  - Pon tantos items como quieras; el mapa de cada día tomará un subconjunto con
+#    variedad por asignatura (y, con el tiempo, priorizará lo que se haya fallado).
