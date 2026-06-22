@@ -21,6 +21,13 @@ Content-safety policy: KidQuest is for children. Image generation is restricted 
 allowlist of family-safe models; any NSFW model is banned. Generated text passes a safety/scope
 filter and a manual review gate before publishing.
 
+## Test fixtures
+
+`fh2m/tests/fixtures/*.fh2m` are **unmodified sample maps from the fheroes2 project**
+([ihhub/fheroes2](https://github.com/ihhub/fheroes2), GPL-2.0), used only as
+read-only test data to verify the `.fh2m` container round-trip. They are not part
+of the shipped product. (R7 cleanup may switch these to fetch-on-demand.)
+
 ## Fonts
 
 _To be added (a high-legibility schoolbook font for the youngest profile)._ Record the font

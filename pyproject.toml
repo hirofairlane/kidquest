@@ -6,17 +6,19 @@ requires-python = ">=3.11"
 dependencies = [
     "kidquest-server",
     "kidquest-content",
+    "kidquest-fh2m",
 ]
 
 [tool.uv]
 package = false
 
 [tool.uv.workspace]
-members = ["server", "content"]
+members = ["server", "content", "fh2m"]
 
 [tool.uv.sources]
 kidquest-server = { workspace = true }
 kidquest-content = { workspace = true }
+kidquest-fh2m = { workspace = true }
 
 [dependency-groups]
 dev = [
@@ -30,7 +32,7 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["server/tests", "content/tests"]
+testpaths = ["server/tests", "content/tests", "fh2m/tests"]
 markers = [
     "smoke: end-to-end tests that need live local AI services (Ollama/ComfyUI on blackwell); excluded from cloud CI",
 ]
