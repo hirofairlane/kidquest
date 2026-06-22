@@ -1,0 +1,97 @@
+{
+  "schema_version": "1",
+  "profile_id": "youth_10yo",
+  "language_default": "es",
+  "overworld": {
+    "width": 3,
+    "height": 3,
+    "tile_legend": {
+      "0": { "name": "Meadow", "walkable": true, "kind": "grass" },
+      "1": { "name": "Mountain", "walkable": false, "kind": "mountain" },
+      "2": { "name": "Road", "walkable": true, "kind": "road" }
+    },
+    "matrix": [
+      [0, 2, 0],
+      [0, 2, 1],
+      [0, 0, 0]
+    ],
+    "start": { "x": 0, "y": 0 }
+  },
+  "entities": [
+    {
+      "id": "chest_1",
+      "type": "chest",
+      "pos": { "x": 2, "y": 0 },
+      "puzzle_ref": "puzzle_fractions_1",
+      "dialogue_ref": null,
+      "encounter_ref": null,
+      "lore": "artificer_device"
+    },
+    {
+      "id": "npc_xana",
+      "type": "npc",
+      "pos": { "x": 0, "y": 2 },
+      "puzzle_ref": null,
+      "dialogue_ref": "dlg_xana_hint",
+      "encounter_ref": null,
+      "lore": "xana"
+    },
+    {
+      "id": "monster_cuelebre",
+      "type": "monster",
+      "pos": { "x": 2, "y": 2 },
+      "puzzle_ref": null,
+      "dialogue_ref": null,
+      "encounter_ref": "enc_cuelebre",
+      "lore": "cuelebre"
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle_fractions_1",
+      "concept_tags": ["fractions_halves"],
+      "subject": "math",
+      "prompt": { "text": "Half of 8 is...?", "language": "en" },
+      "kind": "multiple_choice",
+      "options": ["3", "4", "5"],
+      "answer": "4",
+      "accepted_answers": ["four"],
+      "hint": { "text": "Split 8 into two equal parts.", "language": "en" }
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "dlg_xana_hint",
+      "speaker": "Xana of the River",
+      "lines": [
+        { "text": "Follow the road to find the longest river of Spain.", "language": "en", "voice": "en_GB-slow" }
+      ]
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc_cuelebre",
+      "hex_radius": 2,
+      "units": [
+        {
+          "id": "hero",
+          "team": "player",
+          "name": "Young Knight",
+          "axial": { "q": -1, "r": 0 },
+          "initiative": 10,
+          "stats": { "hp": 20, "atk": 6, "def": 3, "speed": 4, "range": 1 },
+          "lore": null
+        },
+        {
+          "id": "cuelebre",
+          "team": "enemy",
+          "name": "El Cuelebre",
+          "axial": { "q": 1, "r": 0 },
+          "initiative": 8,
+          "stats": { "hp": 30, "atk": 5, "def": 4, "speed": 2, "range": 2 },
+          "lore": "cuelebre"
+        }
+      ]
+    }
+  ]
+}

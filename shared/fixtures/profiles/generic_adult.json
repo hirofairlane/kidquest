@@ -1,0 +1,14 @@
+{
+  "profile_id": "adult_artificer",
+  "display_name": "The Artificer",
+  "age": 40,
+  "curriculum_ref": "adult_artificer",
+  "difficulty_modifier": 1.0,
+  "defeat_streak": 0,
+  "last_level_started_at": null,
+  "reinforce_concepts": [
+    { "concept_id": "ohms_law", "subject": "electronics", "failures": 2, "added_at": null }
+  ],
+  "mastered_concepts": [],
+  "history": []
+}

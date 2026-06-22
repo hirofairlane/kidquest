@@ -1,0 +1,27 @@
+curriculum_ref: youth_10yo
+title: "Fifth grade — history, geography, maths, advanced English"
+subjects:
+  - subject: history
+    language: es
+    weight: 1.0
+    concepts:
+      - { concept_id: christian_kingdoms, label: "Reinos cristianos", difficulty: 3 }
+      - { concept_id: al_andalus, label: "Al-Ándalus", difficulty: 3 }
+      - { concept_id: reconquista, label: "La Reconquista", difficulty: 4 }
+  - subject: geography
+    language: es
+    weight: 1.0
+    concepts:
+      - { concept_id: iberian_relief, label: "Relieve de la Península", difficulty: 3 }
+      - { concept_id: main_rivers, label: "Ríos principales", difficulty: 3 }
+  - subject: math
+    language: es
+    weight: 1.0
+    concepts:
+      - { concept_id: fractions_halves, label: "Fracciones", difficulty: 3 }
+      - { concept_id: roman_numerals_basic, label: "Números romanos", difficulty: 2 }
+  - subject: english
+    language: en
+    weight: 1.0
+    concepts:
+      - { concept_id: reading_comprehension, label: "Reading comprehension quests", difficulty: 4 }

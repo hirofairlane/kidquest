@@ -1,0 +1,16 @@
+curriculum_ref: adult_artificer
+title: "Adult Artificer — technical English & electronics"
+subjects:
+  - subject: english
+    language: en
+    weight: 1.0
+    concepts:
+      - { concept_id: technical_english, label: "Technical/advanced English", difficulty: 5 }
+  - subject: electronics
+    language: en
+    weight: 1.5
+    concepts:
+      - { concept_id: ohms_law, label: "Ohm's law (V=IR)", difficulty: 3 }
+      - { concept_id: components_rlc, label: "Resistors, inductors, capacitors", difficulty: 3 }
+      - { concept_id: logic_gates, label: "Logic gates", difficulty: 4 }
+      - { concept_id: breadboard_basics, label: "Breadboard & Arduino basics", difficulty: 4 }

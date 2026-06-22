@@ -1,0 +1,16 @@
+{
+  "profile_id": "youth_10yo",
+  "display_name": "Young Knight",
+  "age": 10,
+  "curriculum_ref": "youth_10yo",
+  "difficulty_modifier": 1.1,
+  "defeat_streak": 1,
+  "last_level_started_at": null,
+  "reinforce_concepts": [
+    { "concept_id": "fractions_halves", "subject": "math", "failures": 1, "added_at": null }
+  ],
+  "mastered_concepts": ["roman_numerals_basic"],
+  "history": [
+    { "date": "2026-06-21", "result": "cleared", "hp_pct": 0.85 }
+  ]
+}

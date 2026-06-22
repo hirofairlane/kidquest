@@ -1,0 +1,44 @@
+# --- Privacy: never commit real player data or generated content ---
+content-store/
+**/player_profile*.json
+!shared/fixtures/profiles/generic_*.json
+server/data/
+*.local.json
+
+# --- Node / frontend ---
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+.vite/
+coverage/
+.nyc_output/
+.eslintcache
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+.uv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# --- TTS / generated media (scratch) ---
+*.wav
+*.mp3
+!shared/fixtures/**/*.wav
+
+# --- Editors / OS ---
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.log*
+
+# --- Env / secrets ---
+.env
+.env.*
+!.env.example

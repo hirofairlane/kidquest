@@ -1,0 +1,22 @@
+curriculum_ref: child_6yo
+title: "First grade — bilingual basics"
+subjects:
+  - subject: math
+    language: es
+    weight: 1.0
+    concepts:
+      - { concept_id: addition_basic, label: "Sumas hasta 10", difficulty: 1 }
+      - { concept_id: subtraction_basic, label: "Restas hasta 10", difficulty: 1 }
+  - subject: spanish
+    language: es
+    weight: 1.0
+    concepts:
+      - { concept_id: word_recognition, label: "Reconocer palabras cortas", difficulty: 1 }
+  - subject: science_en
+    language: en
+    weight: 1.0
+    concepts:
+      - { concept_id: animals_groups, label: "Mammals, birds, reptiles", difficulty: 1 }
+      - { concept_id: living_nonliving, label: "Living vs non-living things", difficulty: 1 }
+      - { concept_id: body_parts, label: "Body parts in English", difficulty: 1 }
+      - { concept_id: plants_basic, label: "Parts of a plant", difficulty: 2 }

@@ -1,0 +1,35 @@
+[project]
+name = "kidquest-workspace"
+version = "0.0.0"
+description = "KidQuest Python workspace (server + content pipeline)"
+requires-python = ">=3.11"
+dependencies = [
+    "kidquest-server",
+    "kidquest-content",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["server", "content"]
+
+[tool.uv.sources]
+kidquest-server = { workspace = true }
+kidquest-content = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "datamodel-code-generator>=0.26",
+    "jsonschema>=4.23",
+    "pyyaml>=6.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["server/tests", "content/tests"]
+markers = [
+    "smoke: end-to-end tests that need live local AI services (Ollama/ComfyUI on blackwell); excluded from cloud CI",
+]

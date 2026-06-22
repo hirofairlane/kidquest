@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  # ── Contract integrity: schemas parse, examples validate, versions in sync,
+  #    generated code has no drift, and no private profile is committed. ──
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: astral-sh/setup-uv@v3
+      - name: Install JS deps
+        run: pnpm install --frozen-lockfile=false
+      - name: Install Python deps
+        run: uv sync
+      - name: Regenerate contract (codegen)
+        run: bash scripts/codegen.sh
+      - name: No codegen drift
+        run: git diff --exit-code -- shared/ts shared/py
+      - name: Repo invariants + privacy guard
+        run: uv run python tests/validate_repo.py
+
+  # ── Python regression suite + quality gate (server + content pipeline). ──
+  tests-py:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - name: Install Python deps
+        run: uv sync
+      - name: Ruff (code quality)
+        run: uv run ruff check .
+      - name: Pytest (regression, excluding live-AI smoke) with coverage
+        env:
+          KIDQUEST_TESTING: "1"
+        run: uv run pytest -q -m "not smoke" --cov=kidquest_server --cov=kidquest_content --cov-report=term-missing
+
+  # ── TypeScript engine: typecheck + Vitest (pure logic, no Phaser runtime). ──
+  tests-ts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Install JS deps
+        run: pnpm install --frozen-lockfile=false
+      - name: Typecheck
+        run: pnpm -C client typecheck
+      - name: Vitest
+        run: pnpm -C client test
+
+  # ── Front-end build end to end (validates Vite pipeline). ──
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Install JS deps
+        run: pnpm install --frozen-lockfile=false
+      - name: Build client
+        run: pnpm -C client build
+
+  # ── Hard child-safety gate: the banned NSFW LoRA must always be rejected. ──
+  safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - name: Install Python deps
+        run: uv sync
+      - name: Content-safety guardrail
+        run: uv run pytest content/tests/test_safety.py -q

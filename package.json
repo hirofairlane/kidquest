@@ -1,0 +1,20 @@
+{
+  "name": "kidquest",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Adaptive educational turn-based RPG with locally-generated daily content",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "codegen:ts": "json2ts -i shared/schemas -o shared/ts --bannerComment \"// AUTO-GENERATED from shared/schemas. Do not edit by hand. Run: pnpm codegen:ts\"",
+    "codegen": "pnpm codegen:ts",
+    "test:client": "pnpm -C client test",
+    "typecheck:client": "pnpm -C client typecheck",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "json-schema-to-typescript": "^15.0.4",
+    "typescript": "^5.6.3"
+  },
+  "packageManager": "pnpm@11.3.0"
+}

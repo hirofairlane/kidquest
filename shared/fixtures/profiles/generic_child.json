@@ -1,0 +1,12 @@
+{
+  "profile_id": "child_6yo",
+  "display_name": "Young Explorer",
+  "age": 6,
+  "curriculum_ref": "child_6yo",
+  "difficulty_modifier": 1.0,
+  "defeat_streak": 0,
+  "last_level_started_at": null,
+  "reinforce_concepts": [],
+  "mastered_concepts": [],
+  "history": []
+}
