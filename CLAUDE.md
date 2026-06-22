@@ -29,8 +29,10 @@ on-demand content pipeline. Full design in [ARCHITECTURE.md](ARCHITECTURE.md); p
   (192.168.1.70), not on blackwell — needed for push/create.
 
 ## Status
-- 🟡 **M0** scaffolding (this commit): tree, docs, configs, schemas, codegen, CI, harness.
-- 🔴 M1–M9: see `ROADMAP.md`.
+- 🟢 **M0** done: tree, docs, configs, schemas, codegen, CI, harness. Repo published at
+  `github.com/hirofairlane/kidquest`, CI green (validate / tests-py / tests-ts / build / safety).
+- 🟡 **M1** next: hex combat engine (pure TS, TDD).
+- 🔴 M2–M9: see `ROADMAP.md`.
 
 ## How to work here
 ```bash

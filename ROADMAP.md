@@ -3,14 +3,14 @@
 Milestones are TDD-first (red → green → refactor) and each keeps CI green. Most are verifiable
 without the GPU box awake; only the generation/sprite **smoke** tests need it.
 
-## M0 — Scaffold, CI, contract, harness  ⏳
+## M0 — Scaffold, CI, contract, harness  ✅
 - [x] Monorepo tree (pnpm + uv), docs, `.gitignore`, `LICENSE`, `ruff.toml`
-- [ ] `shared/schemas/*.json` (player_profile, daily_level, curriculum) + generic fixtures
-- [ ] Codegen wired: TS types + Pydantic models, with CI drift check
-- [ ] CI (validate / tests-py / tests-ts / build / safety) adapted from `genia-air-ha`
-- [ ] `tests/validate_repo.py` incl. PII guard (no real profile committed)
-- [ ] Red→green placeholder tests on both sides; CI green
-- [ ] Public repo `hirofairlane/kidquest` created and pushed
+- [x] `shared/schemas/*.json` (player_profile, daily_level, curriculum) + generic fixtures
+- [x] Codegen wired: TS types + Pydantic models, with CI drift check
+- [x] CI (validate / tests-py / tests-ts / build / safety) adapted from `genia-air-ha`
+- [x] `tests/validate_repo.py` incl. PII guard (no real profile committed)
+- [x] Red→green placeholder tests on both sides; CI green
+- [x] Public repo `hirofairlane/kidquest` created and pushed — **CI green**
 
 ## M1 — Hex combat engine (pure TS)
 - [ ] `AxialCoord`, `HexGrid` (distance, neighbors, range, line)
