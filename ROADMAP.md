@@ -17,9 +17,9 @@ without the GPU box awake; only the generation/sprite **smoke** tests need it.
 - [x] `TurnQueue` (initiative ordering, ties, cycling)
 - [x] `DamageResolver`, `CombatEncounter` (deterministic resolution)
 
-## M2 — Overworld engine (pure TS)
-- [ ] `Grid`, `Movement` (walkability, collision → intent)
-- [ ] `FogOfWar`, `Fov` (shadowcast visibility)
+## M2 — Overworld engine (pure TS)  ✅
+- [x] `Grid`, `Movement` (walkability, collision → intent)
+- [x] `FogOfWar`, `Fov` (LOS visibility)
 
 ## M3 — Puzzles / dialogue / inventory + LevelLoader (pure TS)
 - [ ] `PuzzleStateMachine`, `AnswerChecker` (accent/case/number-tolerant)
