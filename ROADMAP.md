@@ -48,8 +48,10 @@ without the GPU box awake; only the generation/sprite **smoke** tests need it.
 - [x] Boot/Overworld/Combat/Dialogue/Puzzle scenes bound to the green engine
 - [x] API client (content/today) + tile-colour view helper (unit-tested)
 
-## M9 — Deploy to CT 110 on zeratul
-- [ ] docker-compose (FastAPI + static, CPU-only), NAS content-store mount, provisioning notes
+## M9 — Deploy to CT 110 on zeratul  ✅ (artifacts ready; CT creation pending Sergio's go)
+- [x] docker-compose (api FastAPI + nginx web), CPU-only, NAS content-store mount
+- [x] Dockerfile.api / Dockerfile.web / nginx.conf; CI builds the API image
+- [x] CT 110 provisioning runbook (deploy/lxc/ct110.md)
 
 ---
 

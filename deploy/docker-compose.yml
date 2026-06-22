@@ -1,0 +1,31 @@
+# KidQuest deployment: FastAPI content server + nginx-served Phaser client.
+# Runs on a Proxmox LXC (CT 110 on zeratul). CPU-only — no GPU passthrough.
+# The content store is bind-mounted read-only from the NAS; the daily batch on
+# the GPU box writes to it out-of-band.
+#
+#   KIDQUEST_CONTENT_DIR=/mnt/nas/KidQuest/content-store docker compose up -d --build
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.api
+    environment:
+      KIDQUEST_CONTENT_STORE: /content-store
+      KIDQUEST_DATA: /data
+    volumes:
+      - ${KIDQUEST_CONTENT_DIR:-../content-store}:/content-store:ro
+      - kidquest-data:/data
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.web
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  kidquest-data:

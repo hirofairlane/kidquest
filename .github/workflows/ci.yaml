@@ -75,6 +75,14 @@ jobs:
       - name: Build client
         run: pnpm -C client build
 
+  # ── Validate the deployment image builds end to end. ──
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build API image
+        run: docker build -f deploy/Dockerfile.api -t kidquest-api:ci .
+
   # ── Hard child-safety gate: the banned NSFW LoRA must always be rejected. ──
   safety:
     runs-on: ubuntu-latest
